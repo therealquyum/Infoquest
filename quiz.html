@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Quiz Hub by Quyum</h1>
+    
+    <div class="container">
+        <marquee behavior="" direction=""><span style="color:rgb(100, 30, 51)">Keep practice every day ------- You are in the right path... and success shall be yours.
+         <!-- <a href="https://wa.me/2349063632057" target="_blank">For more Enquries:--09063632057</a>--> for more Enquires : 09063632057</span></marquee> 
+         <hr style="border: 2px solid rgb(255, 0, 179);width: 100%;max-width: 650px;">
+        
+        <h2 id="timer"></h2>
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+        <h2 id="question"></h2>
+        <div class="optionBox" id="optionBox"></div>
+
+        <div class="controls">
+            <button onclick="previousQuestion()">Previous</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="submitQuestion()">Submit Quiz</button>
+        </div>
+
+        <h3>Question</h3>
+        <div id="questionNumbers"></div>
+        <h2 id="result"></h2>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

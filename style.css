@@ -1,0 +1,142 @@
+:root{
+--background-color:#ec379b;
+--text-color:#e492c4;
+--primary-color:#fff;
+--secondary-color:#f300b6fa;
+--tetiary-color:light rgb(130, 166, 233);
+
+
+--shadow:3px 3px 15px rgba(0,0,0,0.2);
+--button:green;
+--maxwidth:700px;
+--heading-size:1.5rem;
+--responsive-margin:0 auto;
+--radius:12px;
+}
+
+
+
+/* Styling */
+
+
+
+
+
+
+body{
+    background: var(--background-color);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.container{
+display: flex;
+justify-content: center;
+align-items: center;
+padding:0 20px;
+
+flex-direction: column;
+background: var(--primary-color);
+box-shadow: var(--shadow);
+max-width: var(--maxwidth);
+width:90%;
+margin: var(--responsive-margin);
+box-shadow: var(--shadow);
+border-radius: var(--radius);
+
+}
+
+button{
+cursor: pointer;
+padding: 10px;
+border:2px solid var(--primary-color);
+box-shadow: var(--shadow);
+border-radius: 8px;
+
+}
+
+.continue-btn{
+    margin-bottom: 20px;
+    font-weight: 600;
+
+}
+.continue-btn:hover{
+    background:var(--text-color);
+    color: var(--primary-color);
+    
+}
+
+.controls{
+    background-color: #f4f4f4;
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 5px solid var(--secondary-color);
+}
+
+h1{
+    color: var(--primary-color);
+}
+h2 {
+font-size:var(--heading-size) ;
+font-weight: 700;
+color: var(--text-color);
+text-align: center;
+}
+
+
+h4{
+text-align: center;
+}
+
+
+.optionBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+    width: 100%;
+    max-width: 600px;
+    /* justify-content: space-around;
+    align-items: center; */
+}
+
+
+p{
+    text-align: center;
+    font-style: italic;
+}
+
+
+
+.quiz-author-img {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width: 100%;
+max-width: 300px;
+padding: 20px;
+}
+
+.quiz-author-img img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit:cover;
+
+}
+
+
+
+.selected{
+    background:var(--background-color);
+    color: var(--primary-color);
+}
+
+
+
+
