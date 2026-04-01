@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz App</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  .question { margin-bottom: 20px; }
+  button { margin: 10px 5px; padding: 10px 15px; }
+</style>
+</head>
+<body>
+
+<h1>Quiz App</h1>
+<div id="quiz-container"></div>
+
+<div>
+  <button onclick="prevPage()">Previous</button>
+  <button onclick="nextPage()">Next</button>
+  <button onclick="finishQuiz()">Finish</button>
+</div>
+
+<div id="result"></div>
+
+<script>
+// ==== QUIZ DATA ====
+let quiz = [
+
+  {
+    question: "What does rurality refer to?",
+    options: [
+      "Urban development",
+      "Characteristics of non-urban areas",
+      "Industrial growth",
+      "City planning"
+    ],
+    answer: "Characteristics of non-urban areas"
+  },
+
+  {
+    question: "Rural areas are typically characterized by:",
+    options: [
+      "High population density",
+      "Limited access to services",
+      "Advanced infrastructure",
+      "Heavy industries"
+    ],
+    answer: "Limited access to services"
+  },
+
+  {
+    question: "Rural economies mainly depend on:",
+    options: [
+      "Banking",
+      "Technology",
+      "Agriculture and small-scale industries",
+      "Aviation"
+    ],
+    answer: "Agriculture and small-scale industries"
+  },
+
+  {
+    question: "Rural communities are best described as:",
+    options: [
+      "Highly industrialized groups",
+      "Groups sharing social and cultural traits",
+      "Isolated individuals",
+      "Urban migrants"
+    ],
+    answer: "Groups sharing social and cultural traits"
+  },
+
+  {
+    question: "A key feature of rural communities is:",
+    options: [
+      "Weak social ties",
+      "Strong social ties",
+      "High digital literacy",
+      "Urban lifestyle"
+    ],
+    answer: "Strong social ties"
+  },
+
+  {
+    question: "Rural libraries primarily aim to:",
+    options: [
+      "Sell books",
+      "Promote literacy and education",
+      "Provide entertainment only",
+      "Store archives"
+    ],
+    answer: "Promote literacy and education"
+  },
+
+  {
+    question: "Rural libraries often face:",
+    options: [
+      "Excess funding",
+      "Limited resources",
+      "Too many staff",
+      "High technology"
+    ],
+    answer: "Limited resources"
+  },
+
+  {
+    question: "Information services in rural areas support:",
+    options: [
+      "Only education",
+      "Only health",
+      "Multiple sectors like agriculture and health",
+      "Only business"
+    ],
+    answer: "Multiple sectors like agriculture and health"
+  },
+
+  {
+    question: "Which is a characteristic of rural dwellers?",
+    options: [
+      "Isolation from nature",
+      "Strong community bonds",
+      "Urban lifestyle",
+      "High industrial exposure"
+    ],
+    answer: "Strong community bonds"
+  },
+
+  {
+    question: "Rural dwellers depend largely on:",
+    options: [
+      "Internet services",
+      "Natural resources",
+      "Air transport",
+      "Factories"
+    ],
+    answer: "Natural resources"
+  },
+
+  {
+    question: "One major challenge in rural education is:",
+    options: [
+      "Too many schools",
+      "Lack of qualified teachers",
+      "Overpopulation",
+      "Too much funding"
+    ],
+    answer: "Lack of qualified teachers"
+  },
+
+  {
+    question: "Agricultural information services help farmers to:",
+    options: [
+      "Travel abroad",
+      "Improve productivity",
+      "Buy cars",
+      "Build houses"
+    ],
+    answer: "Improve productivity"
+  },
+
+  {
+    question: "Which is NOT part of agricultural information?",
+    options: [
+      "Weather updates",
+      "Pest control",
+      "Market prices",
+      "Movie reviews"
+    ],
+    answer: "Movie reviews"
+  },
+
+  {
+    question: "Community radio helps rural dwellers by:",
+    options: [
+      "Providing entertainment only",
+      "Spreading information in local languages",
+      "Selling products",
+      "Replacing schools"
+    ],
+    answer: "Spreading information in local languages"
+  },
+
+  {
+    question: "Mobile libraries help to:",
+    options: [
+      "Reduce population",
+      "Increase access to information",
+      "Replace teachers",
+      "Eliminate books"
+    ],
+    answer: "Increase access to information"
+  },
+
+  {
+    question: "Health information services in rural areas aim to:",
+    options: [
+      "Sell medicine",
+      "Promote awareness and prevention",
+      "Build hospitals",
+      "Train doctors"
+    ],
+    answer: "Promote awareness and prevention"
+  },
+
+  {
+    question: "Civic information services educate people about:",
+    options: [
+      "Cooking",
+      "Voting and rights",
+      "Sports",
+      "Music"
+    ],
+    answer: "Voting and rights"
+  },
+
+  {
+    question: "Environmental information services focus on:",
+    options: [
+      "Entertainment",
+      "Disaster preparedness",
+      "Fashion",
+      "Politics only"
+    ],
+    answer: "Disaster preparedness"
+  },
+
+  {
+    question: "Information dissemination means:",
+    options: [
+      "Hiding information",
+      "Spreading information",
+      "Deleting information",
+      "Selling information"
+    ],
+    answer: "Spreading information"
+  },
+
+  {
+    question: "Digital resources include:",
+    options: [
+      "Books only",
+      "Electronic tools and platforms",
+      "Pens",
+      "Chalkboards"
+    ],
+    answer: "Electronic tools and platforms"
+  },
+
+  {
+    question: "A major challenge to digital services in rural areas is:",
+    options: [
+      "Too much electricity",
+      "Poor internet connectivity",
+      "Too many devices",
+      "Excess knowledge"
+    ],
+    answer: "Poor internet connectivity"
+  },
+
+  {
+    question: "Low digital literacy means:",
+    options: [
+      "High ICT skills",
+      "Lack of basic ICT skills",
+      "Internet access",
+      "Online education"
+    ],
+    answer: "Lack of basic ICT skills"
+  },
+
+  {
+    question: "Mobile phones help rural communities by:",
+    options: [
+      "Providing SMS information",
+      "Replacing teachers",
+      "Stopping farming",
+      "Reducing literacy"
+    ],
+    answer: "Providing SMS information"
+  },
+
+  {
+    question: "Telemedicine allows:",
+    options: [
+      "Online medical consultation",
+      "Physical hospitals only",
+      "No treatment",
+      "Traditional medicine only"
+    ],
+    answer: "Online medical consultation"
+  },
+
+  {
+    question: "Cloud computing helps rural libraries to:",
+    options: [
+      "Lose data",
+      "Store and access information",
+      "Delete records",
+      "Avoid technology"
+    ],
+    answer: "Store and access information"
+  },
+
+  {
+    question: "One benefit of digital libraries is:",
+    options: [
+      "Limited access",
+      "Free educational content",
+      "No books",
+      "No learning"
+    ],
+    answer: "Free educational content"
+  },
+
+  {
+    question: "NGOs support rural libraries by:",
+    options: [
+      "Reducing services",
+      "Providing funding and support",
+      "Closing libraries",
+      "Removing books"
+    ],
+    answer: "Providing funding and support"
+  },
+
+  {
+    question: "Government policies affect rural libraries through:",
+    options: [
+      "Funding and development",
+      "Music",
+      "Sports",
+      "Transportation"
+    ],
+    answer: "Funding and development"
+  },
+
+  {
+    question: "One challenge of rural development is:",
+    options: [
+      "Too much cooperation",
+      "Resistance to change",
+      "Too much funding",
+      "Too many leaders"
+    ],
+    answer: "Resistance to change"
+  },
+
+  {
+    question: "Political interference can:",
+    options: [
+      "Improve projects always",
+      "Delay development programs",
+      "Increase funding",
+      "Solve problems instantly"
+    ],
+    answer: "Delay development programs"
+  },
+
+  {
+    question: "Gender inequality in rural areas means:",
+    options: [
+      "Equal participation",
+      "Exclusion of some groups",
+      "More education",
+      "More jobs"
+    ],
+    answer: "Exclusion of some groups"
+  },
+
+  {
+    question: "Information generation refers to:",
+    options: [
+      "Creating and collecting information",
+      "Deleting data",
+      "Selling books",
+      "Ignoring data"
+    ],
+    answer: "Creating and collecting information"
+  },
+
+  {
+    question: "Information preservation means:",
+    options: [
+      "Destroying records",
+      "Keeping information safe",
+      "Selling data",
+      "Ignoring records"
+    ],
+    answer: "Keeping information safe"
+  },
+
+  {
+    question: "Information use helps rural people to:",
+    options: [
+      "Make decisions",
+      "Ignore knowledge",
+      "Avoid learning",
+      "Stop working"
+    ],
+    answer: "Make decisions"
+  },
+
+  {
+    question: "Mobile technology helps rural libraries by:",
+    options: [
+      "Reducing access",
+      "Expanding access",
+      "Removing books",
+      "Closing services"
+    ],
+    answer: "Expanding access"
+  },
+
+  {
+    question: "One role of rural libraries is:",
+    options: [
+      "Promote illiteracy",
+      "Support community development",
+      "Reduce knowledge",
+      "Limit education"
+    ],
+    answer: "Support community development"
+  }
+
+];
+// ==== VARIABLES ====
+let currentPage = 0;
+let questionsPerPage = 10;
+let userAnswers = new Array(quiz.length);
+
+// ==== FUNCTIONS ====
+function loadQuestions() {
+  let start = currentPage * questionsPerPage;
+  let end = Math.min(start + questionsPerPage, quiz.length);
+  let pageQuestions = quiz.slice(start, end);
+
+  let container = document.getElementById("quiz-container");
+  container.innerHTML = "";
+
+  pageQuestions.forEach((q, index) => {
+    let questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+
+    questionDiv.innerHTML = `
+      <p>${start + index + 1}. ${q.question}</p>
+      ${q.options.map(option => `
+        <label>
+          <input type="radio" name="q${start + index}" value="${option}" ${userAnswers[start + index] === option ? "checked" : ""}>
+          ${option}
+        </label><br>
+      `).join("")}
+    `;
+    container.appendChild(questionDiv);
+  });
+}
+
+function saveAnswers() {
+  let start = currentPage * questionsPerPage;
+  let end = Math.min(start + questionsPerPage, quiz.length);
+
+  for (let i = start; i < end; i++) {
+    let selected = document.querySelector(`input[name="q${i}"]:checked`);
+    userAnswers[i] = selected ? selected.value : null;
+  }
+}
+
+function nextPage() {
+  saveAnswers();
+  if ((currentPage + 1) * questionsPerPage < quiz.length) {
+    currentPage++;
+    loadQuestions();
+  }
+}
+
+function prevPage() {
+  saveAnswers();
+  if (currentPage > 0) {
+    currentPage--;
+    loadQuestions();
+  }
+}
+
+function finishQuiz() {
+  saveAnswers();
+  let score = 0;
+  for (let i = 0; i < quiz.length; i++) {
+    if (userAnswers[i] === quiz[i].answer) score++;
+  }
+  document.getElementById("result").innerHTML = `<h2>Your score: ${score} / ${quiz.length}</h2>`;
+}
+
+// ==== INITIAL LOAD ====
+loadQuestions();
+</script>
+
+</body>
+</html>

@@ -1,143 +1,136 @@
 
-:root{
---background-color:#ec379b;
---text-color:#e492c4;
---primary-color:#fff;
---secondary-color:#f300b6fa;
---tetiary-color:light rgb(130, 166, 233);
 
 
---shadow:3px 3px 15px rgba(0,0,0,0.2);
---button:green;
---maxwidth:700px;
---heading-size:1.5rem;
---responsive-margin:0 auto;
---radius:12px;
+/* Main container */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #4B0082; /* Dark purple */
+  color: #FFFFFF; /* White text */
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* subtle shadow */
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
-
-
-/* Styling */
-
-
-
-
-
-
-body{
-    background: var(--background-color);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-    flex-direction: column;
+/* Question heading */
+#question {
+  margin-bottom: 25px;
+  font-size: 1.5em;
 }
 
-.container{
-display: flex;
-justify-content: center;
-align-items: center;
-padding:0 20px;
-
-flex-direction: column;
-background: var(--primary-color);
-box-shadow: var(--shadow);
-max-width: var(--maxwidth);
-width:90%;
-margin: var(--responsive-margin);
-box-shadow: var(--shadow);
-border-radius: var(--radius);
-
-}
-
+/* Options container */
+.optionsBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px; /* scing between buttons */
+  margin: 20px auto;
+  }
 button{
-cursor: pointer;
-padding: 10px;
-border:2px solid var(--primary-color);
-box-shadow: var(--shadow);
-border-radius: 8px;
-
+  padding: 10px 5px;
+  border:none;
+  border-radius: 16px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+  font-weight: 600;
+  
+}
+.controls-btn{
+  display: flex;
+  justify-content: space-between;
+}
+.controls-btn button {
+  background-color: #9370DB; /* Light purple */
+  color: #fff;
+  border:none; /* Black border */
+  padding: 12px 20px;
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.continue-btn{
-    margin-bottom: 20px;
-    font-weight: 600;
+.progressBar{
+background-color:purple;
+padding: 2px;
+height: 15px;
+border: 1px solid #fff;
+box-shadow:3px 3px 5px rgba(255,);
+margin-bottom: 10px;
+border-radius: 5px;
+width: 0%;
+
 
 }
-.continue-btn:hover{
-    background:var(--text-color);
-    color: var(--primary-color);
-    
-}
+/*
+.question-box{
+  background: #9370db;
+  padding:20px 5px;
+  border-radius: 50px 16px 16px 0;
+}*/
 
-.controls{
-    background-color: #f4f4f4;
-    margin-top: 20px;
-    padding: 20px;
-    border-top: 5px solid var(--secondary-color);
-}
-
-h1{
-    color: var(--primary-color);
-}
-h2 {
-font-size:var(--heading-size) ;
-font-weight: 700;
-color: var(--text-color);
-text-align: center;
-}
-
-
-h4{
-text-align: center;
-}
-
-
-.optionBox{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap:10px;
-    width: 100%;
-    max-width: 600px;
-    /* justify-content: space-around;
-    align-items: center; */
+.selected {
+  background-color:purple;
+  color:#fff;
+  border: 2px solid #fff;
 }
 
 
-p{
-    text-align: center;
-    font-style: italic;
+.question-box {
+  position: relative;
+  padding: 25px;
+  border-radius: 40px 16px 16px 0;
+  overflow: hidden;
+  color: white;
+  
 }
 
+/* Background image */
+.question-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-
-.quiz-author-img {
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-width: 100%;
-max-width: 300px;
-padding: 20px;
+  background: url("images/question-img.jpg") no-repeat center/cover;
+  
+  opacity: 0.3; /* controls transparency */
+  z-index: 0;
 }
 
-.quiz-author-img img{
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit:cover;
+/* Dark overlay (makes text readable) */
+.question-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
-
-
-.selected{
-    background:var(--background-color);
-    color: var(--primary-color);
+/* Make sure text stays above */
+.question-box h2 {
+  position: relative;
+  z-index: 2;
+  font-size: 20px;
 }
 
+.correct {
+  background-color: green;
+  color: white;
+}
 
+.wrong {
+  background-color: red;
+  color: white;
+}
 
-
+.restartBtn{
+  margin-top: 50px;
+  text-align: center;
+}
