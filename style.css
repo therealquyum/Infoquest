@@ -23,7 +23,7 @@
 /* Options container */
 .optionsBox {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr ;
   gap: 15px; /* scing between buttons */
   margin: 20px auto;
   }
@@ -33,6 +33,7 @@ button{
   border-radius: 16px;
   box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
   font-weight: 600;
+  text-align: left;
   
 }
 .controls-btn{
