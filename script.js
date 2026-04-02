@@ -1,62 +1,336 @@
 let quiz = [
 
   {
-    question: "What does rurality refer to?",
+    question: "What is cataloguing in Library and Information Science?",
     options: [
-      "Urban development",
-      "Characteristics of non-urban areas",
-      "Industrial growth",
-      "City planning"
-    ],
-    answer: 1
-  },
-
-  {
-    question: "Rural areas are typically characterized by:",
-    options: [
-      "High population density",
-      "Limited access to services",
-      "Advanced infrastructure",
-      "Heavy industries"
-    ],
-    answer: 1
-  },
-
-  {
-    question: "Rural economies mainly depend on:",
-    options: [
-      "Banking",
-      "Technology",
-      "Agriculture and small-scale industries",
-      "Aviation"
+      "Issuing books to users",
+      "Binding of books",
+      "Describing and listing library materials systematically",
+      "Arranging books on shelves"
     ],
     answer: 2
   },
 
   {
-    question: "Rural communities are best described as:",
+    question: "Classification in LIS refers to:",
     options: [
-      "Highly industrialized groups",
-      "Groups sharing social and cultural traits",
-      "Isolated individuals",
-      "Urban migrants"
+      "Selling books",
+      "Assigning subjects to materials for organization",
+      "Grouping books randomly",
+      "Writing books"
     ],
     answer: 1
   },
 
   {
-    question: "A key feature of rural communities is:",
+    question: "Who developed the Dewey Decimal Classification?",
     options: [
-      "Weak social ties",
-      "Strong social ties",
-      "High digital literacy",
-      "Urban lifestyle"
+      "Charles Cutter",
+      "Melvil Dewey",
+      "Paul Otlet",
+      "S. R. Ranganathan"
     ],
     answer: 1
+  },
+
+  {
+    question: "The main purpose of a library catalogue is to:",
+    options: [
+      "Help users locate materials",
+      "Store books",
+      "Bind journals",
+      "Decorate the library"
+    ],
+    answer: 0
+  },
+
+  {
+    question: "OPAC stands for:",
+    options: [
+      "Open Public Access Center",
+      "Online Private Access Catalogue",
+      "Online Public Access Catalogue",
+      "Official Public Access Code"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Which classification scheme uses facets?",
+    options: [
+      "Colon Classification",
+      "DDC",
+      "UDC",
+      "LCC"
+    ],
+    answer: 0
+  },
+
+  {
+    question: "The Five Laws of Library Science were proposed by:",
+    options: [
+      "Melvil Dewey",
+      "Cutter",
+      "S. R. Ranganathan",
+      "Otlet"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Reference services in libraries involve:",
+    options: [
+      "Printing documents",
+      "Assisting users to find information",
+      "Binding books",
+      "Selling books"
+    ],
+    answer: 1
+  },
+
+  {
+    question: "Which of the following is a primary source?",
+    options: [
+      "Encyclopedia",
+      "Index",
+      "Textbook",
+      "Diary"
+    ],
+    answer: 3
+  },
+
+  {
+    question: "Information literacy means:",
+    options: [
+      "Reading books only",
+      "Writing stories",
+      "Ability to locate, evaluate and use information",
+      "Printing documents"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Abstracting is:",
+    options: [
+      "Writing full text",
+      "Binding journals",
+      "Summarizing documents",
+      "Classifying books"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Indexing helps to:",
+    options: [
+      "Store books",
+      "Retrieve information easily",
+      "Print documents",
+      "Decorate books"
+    ],
+    answer: 1
+  },
+
+  {
+    question: "A bibliography is:",
+    options: [
+      "A journal",
+      "A story book",
+      "List of books on a subject",
+      "A newspaper"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Library automation refers to:",
+    options: [
+      "Reading books",
+      "Use of ICT in library operations",
+      "Writing books",
+      "Manual processes"
+    ],
+    answer: 1
+  },
+
+  {
+    question: "Which is a digital library?",
+    options: [
+      "Mobile library",
+      "Physical books only",
+      "Library with electronic resources",
+      "School library"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Metadata is:",
+    options: [
+      "Journals",
+      "Data about data",
+      "Books",
+      "Libraries"
+    ],
+    answer: 1
+  },
+
+  {
+    question: "The acronym ISBN stands for:",
+    options: [
+      "Internal System Book Number",
+      "International Standard Book Number",
+      "Index Standard Book Number",
+      "International System Book Name"
+    ],
+    answer: 1
+  },
+
+  {
+    question: "ISSN is used for:",
+    options: [
+      "Maps",
+      "Newspapers only",
+      "Journals",
+      "Books"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Selective Dissemination of Information (SDI) is:",
+    options: [
+      "Providing users with relevant current information",
+      "Selling books",
+      "Random information sharing",
+      "Storing information"
+    ],
+    answer: 0
+  },
+
+  {
+    question: "Current Awareness Service (CAS) is used to:",
+    options: [
+      "Update users with recent information",
+      "Provide old information",
+      "Store books",
+      "Bind journals"
+    ],
+    answer: 0
+  },
+
+  {
+    question: "A thesaurus in LIS is:",
+    options: [
+      "Story book",
+      "Dictionary",
+      "Controlled vocabulary tool",
+      "Journal"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Which is NOT a type of library?",
+    options: [
+      "Public library",
+      "Academic library",
+      "Cooking library",
+      "Digital library"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Preservation in libraries involves:",
+    options: [
+      "Protecting library materials",
+      "Writing books",
+      "Selling books",
+      "Destroying books"
+    ],
+    answer: 0
+  },
+
+  {
+    question: "Acquisition in libraries means:",
+    options: [
+      "Binding books",
+      "Obtaining library materials",
+      "Reading books",
+      "Discarding books"
+    ],
+    answer: 1
+  },
+
+  {
+    question: "Which tool is used for classification?",
+    options: [
+      "Atlas",
+      "DDC",
+      "Dictionary",
+      "Encyclopedia"
+    ],
+    answer: 1
+  },
+
+  {
+    question: "Library users are also called:",
+    options: [
+      "Patrons",
+      "Clients",
+      "Readers",
+      "All of the above"
+    ],
+    answer: 3
+  },
+
+  {
+    question: "An encyclopedia is best used for:",
+    options: [
+      "Fiction reading",
+      "In-depth research",
+      "Quick facts",
+      "Newspapers"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Interlibrary loan allows:",
+    options: [
+      "Binding books",
+      "Selling books",
+      "Borrowing from other libraries",
+      "Buying books"
+    ],
+    answer: 2
+  },
+
+  {
+    question: "Information retrieval system is used to:",
+    options: [
+      "Print books",
+      "Bind books",
+      "Store books",
+      "Retrieve relevant information"
+    ],
+    answer: 3
+  },
+
+  {
+    question: "Which is an example of a secondary source?",
+    options: [
+      "Diary",
+      "Letter",
+      "Interview",
+      "Research article review"
+    ],
+    answer: 3
   }
 
 ];
-
 let currentQuestion = 0;
 let userAnswer = [];
 let submitQuestion = false;
